@@ -1,0 +1,704 @@
+\documentclass[11pt, a4paper]{book}% http://ctan.org/pkg/amsproc
+\usepackage[left=1.5cm,right=1.5cm,top=1.5cm,bottom=2 cm]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+%\usepackage{xcolor}
+
+\usepackage{shadow}
+\usepackage{varwidth}
+\usepackage[svgnames]{xcolor}
+\usepackage{tcolorbox}
+\usepackage{fancyhdr}
+\colorlet{TFFrameColor}{magenta}
+\colorlet{headingcolor}{magenta}
+\colorlet{headbgcolor}{magenta}
+%\usepackage{titlesec}%
+\usepackage{amsmath}
+\usepackage{pgf}
+\usepackage{amssymb,mathrsfs}
+\usepackage{tikz}
+\usepackage{framed}
+
+
+
+\renewenvironment{leftbar}{%
+\def\FrameCommand{{\color{TFFrameColor}\vrule width 4pt} \hspace{12pt}}%
+\MakeFramed {\advance\hsize-\width \FrameRestore}}%
+{\endMakeFramed}
+
+\usepackage{tcolorbox}
+\usepackage[explicit,newlinetospace]{titlesec}%
+\usepackage{graphicx}
+\def\chapterabstract{
+}
+
+\titleformat{\chapter}[hang]{\usefont{T1}{phv}{m}{n}}{%
+\parbox[t]{\dimexpr0.12\linewidth-20pt\relax}{\fontfamily{ugq}\selectfont\bfseries\fontsize{70}{0}\selectfont\raisebox{-1.25\height}{\color{TFFrameColor}\thechapter}}}
+{1em}%
+{\begin{minipage}[t]{0.9\linewidth}\begin{leftbar}{\bfseries\fontsize{30}{40}\selectfont\color{TFFrameColor}
+\rule{0pt}{2ex}\strut#1\hfil\vskip2ex\break}\chapterabstract\rule[-1.5ex]{0pt}{1.5ex}\end{leftbar}\end{minipage}
+}
+\titlespacing{\chapter}{0pt}{2\baselineskip}{4\baselineskip}
+
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\moy}{\overline}
+\usepackage{lipsum}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems, skins, breakable}
+\tcbset{
+  leftlined/.style 2 args={
+    blanker, breakable,
+    borderline west={#1}{0pt}{#2},left={#1*14/10+7pt},top=1ex, bottom=1ex
+  }
+}
+
+\usepackage{multirow}
+\usepackage{tabularx}
+\usetikzlibrary{shapes}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usetikzlibrary{shapes.geometric}
+\usepackage[framemethod=tikz]{mdframed}
+\usepackage{customtheorem}
+\usepackage{mathtools}
+\usepackage{epigraph}
+\usepackage{amssymb}
+\usepackage{amsmath,multicol,amssymb}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{calc}
+\usepackage{pifont}
+\usepackage{xpatch}
+\definecolor{vert2}{RGB}{60,179,113}
+\usepackage{lmodern}
+\usepackage{lipsum}
+\usepackage{cclicenses}
+\usepackage{framed}
+\usepackage[francais]{babel}
+\usepackage[tikz]{bclogo}
+\newlength\ChapWd
+\settowidth\ChapWd{\huge\chaptertitlename}
+
+\definecolor{myblue}{RGB}{0,0,122}
+\usepackage{pstricks,pst-plot,pst-text,pst-tree,pst-eps,pst-all,pst-tree,pst-fill,pst-node,pstricks-add,pst-math,pst-blur}
+%\definecolor{vert3}{RGB}{139,0,0}
+%\definecolor{myblue}{RGB}{139,0,0}
+
+
+
+
+
+\theoremstyle{standard}% on vide les dÃƒÆ’Ã‚Â©finitions prÃƒÆ’Ã‚Â©cÃƒÆ’Ã‚Â©dents
+\theorembodyfont{\upshape}% le texte du thÃƒÆ’Ã‚Â©orÃƒÆ’Ã‚Â¨me est en droit
+% couleur bleu pour les exemples/remarques
+\newtheorem*{exemple}{Exemple}
+\newtheorem*{remarque}{Remarque}
+\newtheorem*{exemples}{Exemples}
+\newtheorem*{remarques}{Remarques}
+\newtheorem*{propo}{Propriété}
+\newtheorem*{defus}{Définitions}
+
+\newtheorem*{defo}{Définition}
+
+\newtheorem*{theoreme}{Théorème}
+\newenvironment{remark}{\par\vspace{10pt} % Vertical white space above the remark and smaller font size
+\begin{list}{}{
+\leftmargin=0pt % Indentation on the left
+\rightmargin=5pt}\item\ignorespaces % Indentation on the right
+\makebox[-.5pt]{\begin{tikzpicture}[overlay]
+\node[draw=headingcolor,line width=1pt,circle,fill=headingcolor!10,font= \bfseries,inner sep=2pt,outer sep=0pt] at (-10pt,5pt){\textcolor{headingcolor}{R}};\end{tikzpicture}} % Orange R in a circle
+\advance\baselineskip 5pt}{\end{list}\vskip5pt} 
+
+\newtcolorbox{mybox}[2][]{enhanced,
+before skip=2mm,after skip=2mm,
+colback=white!10,colframe=black!50,boxrule=0.2mm,
+attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+varwidth boxed title*=-3cm,
+boxed title style={frame code={
+\path[fill=magenta!30!white]
+([yshift=-1mm,xshift=-1mm]frame.north west)
+arc[start angle=0,end angle=180,radius=1mm]
+([yshift=-1mm,xshift=1mm]frame.north east)
+arc[start angle=180,end angle=0,radius=1mm];
+\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+middle color=tcbcolback!80!black]
+([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+-- (frame.south east) -- (frame.south west)
+-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+[sharp corners]-- cycle;
+},interior engine=empty,
+},
+fonttitle=\bfseries,
+title={#2},#1}
+\usepackage{amsmath}
+\usepackage{amssymb,mathrsfs}
+
+\definecolor{myred}{rgb}{0.93,0.26,0}
+\definecolor{myorange}{rgb}{0.74, 0.2, 0.64}
+%\definecolor{myorange}{rgb}{0.97,0.58,0}
+\definecolor{myyellow}{rgb}{1,0.86,0}
+
+\theoremstyle{standard}% on vide les dÃƒÆ’Ã‚Â©finitions prÃƒÆ’Ã‚Â©cÃƒÆ’Ã‚Â©dents
+\theorembodyfont{\upshape}% le texte du thÃƒÆ’Ã‚Â©orÃƒÆ’Ã‚Â¨me est en droit
+\theoremheadcolor{purple}% couleur bleu pour les exemples/remarques
+\newtheorem*{demonstration}{DÃ©monstration}
+
+
+
+\theoremstyle{standard}% on vide les dÃƒÆ’Ã‚Â©finitions prÃƒÆ’Ã‚Â©cÃƒÆ’Ã‚Â©dents
+\theorembodyfont{\upshape}% le texte du thÃƒÆ’Ã‚Â©orÃƒÆ’Ã‚Â¨me est en droit
+\theoremheadcolor{black}% couleur bleu pour les exemples/remarques
+%\newtheorem{propo}{Propriété}
+\newtheorem{defu}{D\'efinition}
+
+
+%\theoremstyle{standard}% on vide les dÃƒÆ’Ã‚Â©finitions prÃƒÆ’Ã‚Â©cÃƒÆ’Ã‚Â©dents
+%\theorembodyfont{\upshape}% le texte du thÃƒÆ’Ã‚Â©orÃƒÆ’Ã‚Â¨me est en droit
+%\theoremheadcolor{red}% couleur bleu pour les exemples/remarques
+%\newtheorem{exo}{Exercice}
+
+
+
+
+
+
+
+
+
+\newcommand{\points}[1][5cm]{\makebox[#1][l]{\dotfill}\xspace}
+
+\newcommand{\trait}[1][5cm]{\makebox[#1][l]{\hrulefill}\xspace}
+
+
+
+
+
+%\newtikztheorem{theoreme}{ThÃƒÆ’Ã‚Â©orÃƒÆ’Ã‚Â¨me}
+
+\theoremstyle{definition}
+%\newtheorem{Def}{Définition}
+\newtheorem{Ex}{Exemple}
+\newtheorem{nota}{Notation}
+\newtheorem{DefProp}{Définition-Proposition}
+\newtheorem{exo}{\large{Exercice}}
+\newtheorem{Vid}{\textcolor{red}{V}}
+
+\theoremstyle{remark}
+\newtheorem{De}{Démonstration}
+\newtheorem{Rem}{Rem}
+\newtheorem{fon}{\textbf{\small{A retenir}}}
+\newtheorem{Me}{Méthode}
+%\newtheorem{exo}{Exercice}[chapter]
+
+
+
+
+%\input{tcilatex}
+
+\usepackage{graphicx}
+
+
+
+
+
+
+
+\usepackage{pstricks}
+\makeatletter
+
+
+
+
+%%%%%%%%%Couleurs%%%%%%%%
+\newgray{darkgray}{0.95}
+\newgray{darkgray2}{0.9}
+%\newrgbcolor{bleuclaire}{1 0.95 0.98}
+%\newrgbcolor{jauneclaire}{0.8 1  0.5}
+%\newrgbcolor{fjaune}{1 0.98 0.85}
+
+\newrgbcolor{bleuclaire}{1 0.97 0.99}
+\newrgbcolor{jauneclaire}{0.995 1  0.95}
+\newrgbcolor{fjaune}{1 0.995 0.95}
+
+%%%%%%%%%%%%%%%%%%% debut fichier boiboites.sty %%%%%%%%%%%%%%%%%%%%%%
+\RequirePackage{xkeyval}
+\RequirePackage{tikz}
+\RequirePackage{amssymb}
+
+
+
+
+
+
+\define@key{boxedtheorem}{titlecolor}{\def\titlecolor{#1}}
+\define@key{boxedtheorem}{titlebackground}{\def\titlebackground{#1}}
+\define@key{boxedtheorem}{background}{\def\background{#1}}
+\define@key{boxedtheorem}{titleboxcolor}{\def\titleboxcolor{#1}}
+\define@key{boxedtheorem}{boxcolor}{\def\boxcolor{#1}}
+\define@key{boxedtheorem}{thcounter}{\def\thcounter{#1}}
+\define@key{boxedtheorem}{size}{\def\size{#1}}
+\presetkeys{boxedtheorem}{titlecolor = black, titlebackground = darkgray2, background = bleuclaire,%
+                         titleboxcolor = black, boxcolor = black, thcounter=, size = 0.9\textwidth}{}
+
+\newcommand{\couleurs}[1][]{%
+    \setkeys{boxedtheorem}{#1}
+    \tikzstyle{fancytitle} =[draw=\titleboxcolor, rounded corners, fill=\titlebackground,
+                            text= \titlecolor]
+    \tikzstyle{mybox} = [draw=\boxcolor, fill=\background, very thick,
+                        rectangle, rounded corners, inner sep=10pt, inner ysep=15pt]
+}
+
+
+\newcommand{\coulor}[1][]{%
+    \setkeys{boxedDef}{#1}
+    \tikzstyle{fancytitle} =[draw=\titleboxcolor, rounded corners, fill=\titlebackground,
+                            text= \titlecolor]
+    \tikzstyle{mybox} = [draw=headingcolor, fill=\background, very thick,
+                        rectangle, rounded corners, inner sep=10pt, inner ysep=15pt]
+}
+
+
+\newcommand{\coulmet}[1][]{%
+    \setkeys{boxedmet}{#1}
+    \tikzstyle{fancytitle} =[draw=\titleboxcolor, rounded corners, fill=\titlebackground,
+                            text= \titlecolor]
+    \tikzstyle{mybox} = [draw=\boxcolor, fill=\background, very thick,
+                        rectangle, rounded corners, inner sep=10pt, inner ysep=15pt]
+}
+
+
+
+%Commande generique pour faire un joli encadre
+\newsavebox{\boiboite}
+\newcommand{\titre}{Titre}
+\newenvironment{boite}[2][]%
+    {%
+    \renewcommand{\titre}{#2}
+    \couleurs[#1]
+    \begin{lrbox}{\boiboite}%
+     \begin{minipage}[!h]{\size}
+    }%
+    {%
+     \end{minipage}
+    \end{lrbox}
+    \begin{center}
+    \begin{tikzpicture}
+    \node [mybox] (box){\usebox{\boiboite}};
+    \node[fancytitle, right=10pt] at (box.north west) {\titre};
+    \end{tikzpicture}
+    \end{center}
+    }
+
+
+%Commande generique pour faire un joli encadre
+\newsavebox{\boiboitedef}
+%\newcommand{\titre}{Titre}
+\newenvironment{boitedef}[2][]%
+    {%
+    \renewcommand{\titre}{#2}
+    \coulor[#1]
+    \begin{lrbox}{\boiboitedef}%
+     \begin{minipage}[!h]{\size}
+    }%
+    {%
+     \end{minipage}
+    \end{lrbox}
+    \begin{center}
+    \begin{tikzpicture}
+    \node [mybox] (box){\usebox{\boiboitedef}};
+    \node[fancytitle, right=10pt] at (box.north west) {\titre};
+    \end{tikzpicture}
+    \end{center}
+    }
+\newcommand*{\pr}{\mathbf{P}}
+%Commande generique pour faire un joli encadre
+\newsavebox{\boiboitemet}
+%\newcommand{\titre}{Titre}
+\newenvironment{boitemet}[2][]%
+    {%
+    \renewcommand{\titre}{#2}
+    \coulmet[#1]
+    \begin{lrbox}{\boiboitemet}%
+     \begin{minipage}[!h]{\size}
+    }%
+    {%
+     \end{minipage}
+    \end{lrbox}
+    \begin{center}
+    \begin{tikzpicture}
+    \node [mybox] (box){\usebox{\boiboitemet}};
+    \node[fancytitle, right=10pt] at (box.north west) {\titre};
+    \end{tikzpicture}
+    \end{center}
+    }
+
+\newcommand{\newboxedtheorem}[4][]{%
+    \couleurs[#1]
+    \@ifnotempty{#4}{%
+      \@ifundefined{the#4}{\@ifundefined{\thcounter}{\newcounter{#4}}{%
+      \newcounter{#4}[\thcounter ] } } { }%
+    }
+    \newenvironment{#2}[1][]{%
+    \@ifnotempty{#4}{\refstepcounter{#4}}
+    \begin{boite}[#1]{\textbf{#3\@ifnotempty{#4}{ \csname the#4\endcsname}}\@ifnotempty{##1}{
+    (##1)}}
+    }%
+    {%
+    \end{boite}
+    }
+}
+
+
+\define@key{boxedDef}{titlecolor}{\def\titlecolor{#1}}
+\define@key{boxedDef}{titlebackground}{\def\titlebackground{#1}}
+\define@key{boxedDef}{background}{\def\background{#1}}
+\define@key{boxedDef}{titleboxcolor}{\def\titleboxcolor{#1}}
+\define@key{boxedDef}{boxcolor}{\def\boxcolor{#1}}
+\define@key{boxedDef}{thcounter}{\def\thcounter{#1}}
+\define@key{boxedDef}{size}{\def\size{#1}}
+\presetkeys{boxedDef}{titlecolor = black, titlebackground = white, background = white,%
+                         titleboxcolor = white, boxcolor = black, thcounter=, size = 0.9\textwidth}{}
+
+
+
+\newcommand{\newboxedDef}[4][]{%
+    \coulor[#1]
+    \@ifnotempty{#4}{%
+      \@ifundefined{the#4}{\@ifundefined{\thcounter}{\newcounter{#4}}{%
+      \newcounter{#4}[\thcounter ] } } { }%
+    }
+    \newenvironment{#2}[1][]{%
+    \@ifnotempty{#4}{\refstepcounter{#4}}
+    \begin{boitedef}[#1]{\textbf{#3\@ifnotempty{#4}{ \csname the#4\endcsname}}\@ifnotempty{##1}{
+    (##1)}}
+    }%
+    {%
+    \end{boitedef}
+    }
+}
+
+
+\define@key{boxedmet}{titlecolor}{\def\titlecolor{#1}}
+\define@key{boxedmet}{titlebackground}{\def\titlebackground{#1}}
+\define@key{boxedmet}{background}{\def\background{#1}}
+\define@key{boxedmet}{titleboxcolor}{\def\titleboxcolor{#1}}
+\define@key{boxedmet}{boxcolor}{\def\boxcolor{#1}}
+\define@key{boxedmet}{thcounter}{\def\thcounter{#1}}
+\define@key{boxedmet}{size}{\def\size{#1}}
+\presetkeys{boxedmet}{titlecolor = black, titlebackground = white, background = fjaune,%
+                         titleboxcolor = white, boxcolor = white, thcounter=, size = 0.9\textwidth}{}
+
+
+
+\newcommand{\newboxedmet}[4][]{%
+    \coulor[#1]
+    \@ifnotempty{#4}{%
+      \@ifundefined{the#4}{\@ifundefined{\thcounter}{\newcounter{#4}}{%
+      \newcounter{#4}[\thcounter ] } } { }%
+    }
+    \newenvironment{#2}[1][]{%
+    \@ifnotempty{#4}{\refstepcounter{#4}}
+    \begin{boitemet}[#1]{\textbf{#3\@ifnotempty{#4}{ \csname the#4\endcsname}}\@ifnotempty{##1}{
+    (##1)}}
+    }%
+    {%
+    \end{boitemet}
+    }
+}
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%% end fichier boiboites.sty %%%%%%%%%%%%%%%%%%%%%%
+
+
+
+
+
+\makeatother
+\newboxedtheorem{Thm}{Théorème}{theorem}
+%\newboxedtheorem{Prop}{Proposition}{theorem}
+\newboxedtheorem{cor}{Corolaire}{theorem}
+\newboxedtheorem{defp}{Définition-Proposition}{theorem}
+\newboxedDef{Def}{Définition}{Def}
+\newboxedDef{Prop}{Propriété}{Prop}
+\newboxedDef{Theo}{Théorème}{Theo}
+\newboxedmet{met}{Méthode}{met}
+\newboxedmet{mex}{Méthode-exemple}{met}
+\newboxedmet{vid}{Vidéo}{vid}
+\newboxedtheorem{Cor}{Corolaire}{theorem}
+\newtheorem{Vi}{\normalsize{\textbf{Vidéo}}}
+
+
+
+
+
+
+
+\renewcommand{\thesection}{ \:  \:   \Roman{section}.}
+\renewcommand{\thesubsection}{ \;  \; \; \;  \; \;    \Alph{subsection}.}
+\renewcommand{\thesubsubsection}{\;  \; \;  \; \;  \arabic{subsubsection}.}
+
+
+\makeatletter
+\renewcommand\section{\@startsection {section}{1}{\z@}%
+                                   {-3.5ex \@plus -1ex \@minus -.2ex}%
+                                   {2.3ex \@plus.2ex}%
+                                   {\normalfont\LARGE\bfseries\color{black}}}
+\renewcommand\subsection{\@startsection{subsection}{2}{\z@}%
+                                     {-3.5ex\@plus -1ex \@minus -.2ex}%
+                                     {2.3ex \@plus .2ex}%
+                                     {\normalfont\Large\bfseries\color{black}}}
+\renewcommand\subsubsection{\@startsection{subsubsection}{2}{\z@}%
+                                     {-3.5ex\@plus -1ex \@minus -.2ex}%
+                                     {2.3ex \@plus .2ex}%
+                                     {\normalfont\large\bfseries\color{black}}}
+\newlength{\longarc}
+\newcommand{\arc}[1]{\settowidth{%
+\longarc}{$#1$}
+\addtolength{\longarc}{-0.5em}%
+\unitlength \longarc \ensuremath{%
+\stackrel{\begin{picture}(1,0.2)
+\qbezier(0,0)(0.5,0.2)(1,0)
+\end{picture}}{#1}}}
+
+
+
+\newenvironment{dem}{\begin{center}\begin{tabular}{|p{20cm}}\begin{minipage}{\textwidth}\begin{De}} 
+{\end{De}\end{minipage}  \end{tabular}\end{center}}
+
+
+\newcommand{\norm}[1]{\left\Vert #1\right\Vert}
+
+\newcommand{\puce}[1]{\begin{itemize}[label=\textbullet] #1 \end{itemize}}
+
+
+
+\usepackage{marginnote}
+\usepackage{color}
+\renewcommand*{\marginfont}{\color{black}}
+
+ %trace un trait entre l’entête et le texte.
+
+\usepackage{graphicx} 
+
+
+\newcommand{\p}{\newline $\bullet$   }
+\newcommand{\bu}{$\bullet$   }
+
+\newcommand{\nr}[1]{ \marginnote{\footnotesize{\begin{Rem}#1\end{Rem}}}}
+\newcommand{\nt}[1]{ \marginnote{\footnotesize{#1}}}
+\newcommand{\nti}[1]{ \marginnote{\footnotesize{\textit{#1}}}}
+%\newcommand{•}{•} \nt[1]{{\footnotesize{#1}}
+
+
+
+
+%\newcommand{\points}[1][5cm]{\makebox[#1][l]{\dotfill}\xspace}
+
+%\newcommand{\trait}[1][5cm]{\makebox[#1][l]{\hrulefill}\xspace}
+
+
+
+
+\def\att{
+\begin{tikzpicture}[scale=0.6]
+\draw[fill=red,rounded corners=1.5pt] (0,0) -- (1,0) -- (0.5,1) -- cycle ;
+\draw[fill=white,rounded corners=2pt] (0.13,0.08) -- (0.87,0.08) -- (0.5,0.8) -- cycle ;
+\draw[fill=black,rounded corners=1pt] (0.5,0.3) -- (0.55,0.6) -- (0.45,0.6) -- cycle ;
+\fill (0.5,0.2) circle(0.04) ;
+\draw (1.2,0) ;
+\end{tikzpicture}}
+
+
+
+\newcommand{\defi}[1]{{\color{headingcolor}\textbf{\emph{#1}}}}
+
+
+%\newtikztheorem{theoreme}{ThÃƒÆ’Ã‚Â©orÃƒÆ’Ã‚Â¨me}
+
+\newtcbtheorem[number within=section]{mytheo}{Théorème}%
+{colback=green!5,colframe=green!20,fonttitle=\bfseries,coltitle=black}{th}
+%%%%%%% DOCUMENT %%%%%%%%%%
+\newtcbtheorem[number within=section]{prop}{Propriété.}%
+{colback=white,colframe=green!30,fonttitle=\bfseries,coltitle=black,sharpish corners}{th}
+
+
+\newtcbtheorem[number within=section]{props}{Propriétés.}%
+{colback=white,colframe=green!30,fonttitle=\bfseries,coltitle=black,sharpish corners}{th}
+
+
+\newtcbtheorem[number within=section]{defn}{Définition.}%
+{colback=white,colframe=yellow!50,fonttitle=\bfseries,coltitle=black,sharpish corners}{th}
+
+
+
+
+
+%\newcommand{\points}[1][5cm]{\makebox[#1][l]{\dotfill}\xspace}
+
+%\newcommand{\trait}[1][5cm]{\makebox[#1][l]{\hrulefill}\xspace}
+
+
+
+%\newcounter{theorem}[chapter]
+\newenvironment{exercice}[1][]
+ {\noindent\refstepcounter{theorem}
+{\noindent\bcpanchant\bf\fontfamily{pag}\selectfont Application
+\thetheorem.} %
+}
+
+\renewcommand{\thetheorem}{\arabic{theorem}.\bfseries\oldstylenums{\thechapter}}
+
+
+
+
+\newcommand{\notes}[3][\empty]{%
+    %\vspace{10pt} \ \\
+
+%% 		 \rule[-0.4ex]{0.2ex}{#2\dimexpr(1.5em)\relax}
+  	%
+	%   \begin{fileslignes}
+	%    \vspace*{10em}
+	% \end{fileslignes}
+	%   \foreach \n in {1,...,#2}{%
+	%
+	% \begin{tikzpicture}[thick]
+	%   \draw[snake=zigzag]   (0,0) -- (0,2em);
+	% \end{tikzpicture}
+	%   }
+	
+    \noindent\foreach \n in {1,...,#2}{%
+        \ifthenelse{\equal{#1}{\empty}}
+            {\textcolor{gray}{\rule{#3}{0.5pt}}\\}
+            {\textcolor{gray}{\rule{#3}{0.5pt}}\vspace{#1}\\}
+        }
+}
+
+%  \newcommand{\trait}[1][5cm]{\makebox[#1][l]{\hrulefill}\xspace}
+  \newcommand\lignes[1]{\noindent\notes[1.8ex]{#1}{0.9\linewidth}}
+%  \newcommand{\defi}[1]{{\color{headingcolor}\textbf{\textit{#1}}}}
+\newcommand{\trou}[1][5cm]{\makebox[#1][l]{\xspace}}
+
+
+
+\pagestyle{fancyplain}
+\setcounter{chapter}{-1}
+
+\fancyhf{}
+\fancyhead[LE]{%
+  \makebox[0pt][r]{
+    \colorbox{headbgcolor}{\makebox[\textwidth][r]{\bfseries\textcolor{white}{\thepage}\enskip}}\hspace*{1em}}%
+  {\upshape\leftmark}\hspace*{1em}%
+}
+\fancyhead[RO]{%
+  \mbox{}\hspace*{1em}{\upshape\leftmark}%
+  \makebox[0pt][l]{%
+    \hspace*{1em}\colorbox{headbgcolor}{\makebox[\textwidth][l]{\enskip\bfseries\textcolor{white}{\thepage}}}}%
+}
+
+
+\fancyfoot[CO]{\scriptsize\textsl{\color{headbgcolor}Yann \textsc{MOBIAN} - Classe de Maths expertes - \textcolor{headbgcolor}{Licence Creative Commons \bysa - 2022/2023}}}
+
+
+
+\renewcommand{\headrulewidth}{0pt}
+\def\headrulefill{\leaders\hrule width 0pt height 3pt depth -2.8pt \hfill}
+\renewcommand{\chaptermark}[1]{}
+\chead{}
+\lfoot{}
+\begin{document}
+ \chapter{\fontfamily{ugq}\selectfont\bfseries Raisonner par récurrence}
+\vspace*{-1 cm}
+\section{Préambule}
+Soit la suite $(u_n)_{n\in \N}$ définie par~:
+\[\begin{cases}
+   u_0=2 \\ u_{n+1}=2u_n-n
+ \end{cases} \]
+ \begin{enumerate}
+ \item Calculer les trois premiers termes de cette suite.
+ \vskip 0.2 cm
+ \lignes{3}
+ \vskip 0.3 cm
+ \item Soit $(v_n)_{n\in \N}$ définie par $v_n=2^n+n+1$.
+ \begin{enumerate}
+ \item Calculer les trois premiers termes de cette suite.
+ \vskip 0.2 cm
+ \lignes{3}
+ \vskip 0.3 cm
+ \item Quelle conjecture peut-on émettre?~\hrulefill
+ \vskip 0.5cm
+ \item \`A quelle difficulté est-on confrontés?~\hrulefill
+ \end{enumerate}
+ 
+ \end{enumerate}
+\vskip 1 cm
+\section{Principe de récurrence}
+\vskip 0.5 cm
+\begin{tabular}{cc}
+\begin{minipage}{6cm}
+\includegraphics[width=5 cm]{domino}
+\end{minipage}
+&
+\begin{minipage}{11cm}
+Le raisonnement par récurrence peut se comparer à la théorie des dominos :
+on considère une suite de dominos rangés de telle sorte que si un domino tombe alors le
+suivant tombera.
+Si on fait tomber le premier domino alors le second tombera, puis le troisième,
+...etc.. Conclusion : si le
+premier domino tombe alors tous tomberont.
+Tout repose en fait sur le principe de propagation "si l'un tombe alors le suivant
+aussi"
+\end{minipage}
+\end{tabular}
+\newpage
+Le raisonnement par récurrence repose sur le principe suivant : 
+\vskip 0.5 cm
+\shabox{
+Si \quad $\underbrace{\mathscr{P}_0~\text{est vraie}}_{\text{Initialisation}}$ \qquad et si : \qquad $\underbrace{\forall n \in \N,\qquad ~(\mathscr{P}_n\Longrightarrow~\mathscr{P}_{n+1})}_{\text{Hérédité}}$,\qquad alors : \quad $\forall n$,~$\mathscr{P}_n$.
+}
+\vskip 0.3 cm
+\begin{att} Toute autre rédaction est exclue.~Commencer l'hérédité par \og supposons que pour tout $n\in\N$,~$\mathscr{P}_n$ est vraie\fg~est une erreur \textsc{gravissime}.~En effet, si on suppose la proposition vraie pour \textsc{tous} les rangs, que reste-t-il à prouver?~On ne peut jamais montrer ce qu'on prend comme hypothèse.
+\end{att}
+\vskip 0.5 cm
+\noindent
+Retour sur l'exemple initial.~On souhaite démontrer que : $\forall n\in \N,~u_n=2^n+n+1$.
+\vskip 0.5  cm
+
+
+\begin{mybox}[colbacktitle=magenta]{Rédaction à avoir}
+Soit $\mathscr{P}_{n}~:~~u_n=2^n+n+1$.
+\vskip 0.2 cm
+\begin{itemize}
+\item[$\bullet$] \textbf{Initialisation.}~Par définition on a $u_0=2$ et $2^0+0+1=2$ donc $\mathscr{P}_0$ est vraie.
+\vskip 0.2 cm
+\item[$\bullet$] \textbf{Hérédité.}~Soit $n\in \N$.~On suppose $\mathscr{P}_n$ vraie c'est-à-dire $u_n=2^n+n+1$.\\
+Montrons que $\mathscr{P}_{n+1}$ vraie c'est-à-dire $u_{n+1}=2^{n+1}+n+2$.\\
+D'après l'énoncé : $u_{n+1}=2u_n-n$ et par hypothèse de récurrence : $u_n=2^n+n+1$.\\
+Ainsi $u_{n+1}=2(2^n+n+1)-n$ soit $u_{n+1}=2^{n+1}+n+2$.
+\vskip 0.2 cm
+\noindent \textbf{Conclusion~:}~$\mathscr{P}_0$ vraie et $\forall n \in \N,\quad (\mathscr{P}_n\Longrightarrow~\mathscr{P}_{n+1})$ donc : $\forall n \in \N,~u_n=2^n+n+1$.
+\end{itemize}
+\end{mybox}
+\vskip 0.3 cm
+\section{Récurrence double (hors programme)}
+Il arrive parfois qu'on ne sache pas déduire $\mathscr{P}_{n+1}$ de $\mathscr{P}_n$ mais seulement $\mathscr{P}_{n+2}$ de $\mathscr{P}_{n}$ et $\mathscr{P}_{n+1}$.\\
+Le principe de récurrence prend alors la forme suivante : 
+\vskip 0.5 cm
+\shabox{
+Si \quad $\underbrace{\mathscr{P}_0~\text{et}~\mathscr{P}_1~\text{sont vraies}}_{\text{Initialisation}}$ \quad et si : \quad $\underbrace{\forall n \in \N,\qquad ~(\mathscr{P}_n~\text{et}~\mathscr{P}_{n+1})  \Longrightarrow~\mathscr{P}_{n+2})}_{\text{Hérédité}}$,\qquad alors :~$\forall n$,~$\mathscr{P}_n$.
+}
+\vskip 0.5 cm
+\noindent \textbf{Exemple.}~Soit $(u_n)_{n\in\N}$ la suite réelle définie par $u_0=4$,~$u_1=5$ et pour tout $n\in \N$,~$u_{n+2}=3u_{n+1}-2u_n$.\\
+Démontrer que pour tout entier naturel $n$~:~$u_n=2^n+3$.
+\vskip 0.4 cm
+ \lignes{10}
+
+\end{document} 
