@@ -1,0 +1,329 @@
+\documentclass[12 pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage[left=2.5cm,right=2.5cm,top=1.5cm,bottom=2 cm]{geometry}
+\usepackage{fourier}
+\usepackage[scaled=0.875]{helvet}
+\renewcommand{\ttdefault}{lmtt}
+\usepackage{makeidx}
+\usepackage{tikz,lipsum}
+\usepackage{varwidth,xparse}
+\usepackage{tcolorbox}
+\makeindex
+\usepackage{amsmath,amssymb}
+\usepackage{fancybox}
+\usepackage[normalem]{ulem}
+\newcommand{\vecteur}[1]{\ensuremath{\overrightarrow{#1}}}
+\usepackage{pifont}
+\usepackage{lscape}
+\usepackage{multicol}
+\usepackage{mathrsfs}
+\usepackage{booktabs}
+\usepackage{tabularx,array}
+\usepackage{colortbl}
+\usepackage{multirow}
+\usepackage{textcomp}
+\tcbuselibrary{skins,breakable}
+\usepackage{enumitem}  
+%\definecolor{navyblue}{rgb}{0.0, 0.0, 0.7}
+\definecolor{navyblue}{rgb}{0.2, 0.2, 0.7}
+\newcommand{\euro}{\eurologo{}}
+
+\definecolor{macouleur}{cmyk}{0,0.27,0.03,0}
+
+
+
+\newtcolorbox{defi}[2][]{enhanced,
+before skip=2mm,after skip=2mm,
+colback=black!5,colframe=black!50,boxrule=0.2mm,
+attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+varwidth boxed title*=-3cm,
+boxed title style={frame code={
+\path[fill=tcbcolback!30!black]
+([yshift=-1mm,xshift=-1mm]frame.north west)
+arc[start angle=0,end angle=180,radius=1mm]
+([yshift=-1mm,xshift=1mm]frame.north east)
+arc[start angle=180,end angle=0,radius=1mm];
+\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+middle color=tcbcolback!80!black]
+([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+-- (frame.south east) -- (frame.south west)
+-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+[sharp corners]-- cycle;
+},interior engine=empty,
+},
+fonttitle=\bfseries,
+title={#2},#1}
+
+
+\newtcolorbox{prop}[2][]{enhanced,
+before skip=2mm,after skip=2mm,
+colback=black!5,colframe=black!50,boxrule=0.2mm,
+attach boxed title to top left={xshift=1cm,yshift*=1mm-\tcboxedtitleheight},
+varwidth boxed title*=-3cm,
+boxed title style={frame code={
+\path[fill=tcbcolback!30!black]
+([yshift=-1mm,xshift=-1mm]frame.north west)
+arc[start angle=0,end angle=180,radius=1mm]
+([yshift=-1mm,xshift=1mm]frame.north east)
+arc[start angle=180,end angle=0,radius=1mm];
+\path[left color=tcbcolback!60!black,right color=tcbcolback!60!black,
+middle color=tcbcolback!80!black]
+([xshift=-2mm]frame.north west) -- ([xshift=2mm]frame.north east)
+[rounded corners=1mm]-- ([xshift=1mm,yshift=-1mm]frame.north east)
+-- (frame.south east) -- (frame.south west)
+-- ([xshift=-1mm,yshift=-1mm]frame.north west)
+[sharp corners]-- cycle;
+},interior engine=empty,
+},
+fonttitle=\bfseries,
+title={#2},#1}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%Tapuscrit : Denis Vergès 
+\newcounter{example}
+\usepackage{graphicx}
+\colorlet{colexam}{red!75!black}
+\newtcolorbox[use counter=example]{myexample}{%
+empty,title={Exemple \thetcbcounter},attach boxed title to top left,
+boxed title style={empty,size=minimal,toprule=2pt,top=4pt,
+overlay={\draw[colexam,line width=2pt]
+([yshift=-1pt]frame.north west)--([yshift=-1pt]frame.north east);}},
+coltitle=colexam,fonttitle=\Large\bfseries,
+before=\par\medskip\noindent,parbox=false,boxsep=0pt,left=0pt,right=3mm,top=4pt,
+breakable,pad at break*=0mm,vfill before first,
+overlay unbroken={\draw[colexam,line width=1pt]
+([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+--([xshift=-0.5pt]frame.south east)--(frame.south west); },
+overlay first={\draw[colexam,line width=1pt]
+([yshift=-1pt]title.north east)--([xshift=-0.5pt,yshift=-1pt]title.north-|frame.east)
+--([xshift=-0.5pt]frame.south east); },
+overlay middle={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
+--([xshift=-0.5pt]frame.south east); },
+overlay last={\draw[colexam,line width=1pt] ([xshift=-0.5pt]frame.north east)
+--([xshift=-0.5pt]frame.south east)--(frame.south west);},%
+}
+\usepackage{pst-all,pst-func}
+\usepackage{pst-eucl}
+%\usepackage{tikz}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\D}{\mathbb{D}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\C}{\mathbb{C}}
+\usepackage{diagbox}
+%\usepackage[left=3.5cm, right=3.5cm, top=2cm, bottom=3cm]{geometry}
+\newcommand{\cg}{\texttt{]}}% crochet gauche
+\newcommand{\cd}{\texttt{[}}% crochet droit
+\newcommand{\pg}{\geqslant}%  plus grand ou égal
+\newcommand{\pp}{\leqslant}%  plus petit ou égal
+\newcommand{\vect}[1]{\overrightarrow{\,\mathstrut#1\,}}
+\newcommand{\barre}[1]{\overline{\,\mathstrut#1\,}}
+\renewcommand{\theenumi}{\textbf{\arabic{enumi}}}
+\renewcommand{\labelenumi}{\textbf{\theenumi.}}
+
+
+
+
+\newcommand{\blanc}[1][5cm]{\makebox[#1][l]{\hrulefill}\xspace}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+\renewcommand{\theenumii}{\textbf{\alph{enumii}}}
+\renewcommand{\labelenumii}{\textbf{\theenumii.}}
+\def\Oij{$\left(\text{O}~;~\vect{\imath},~\vect{\jmath}\right)$}
+\def\Oijk{$\left(\text{O}~;~\vect{\imath},~\vect{\jmath},~\vect{k}\right)$}
+\def\Ouv{$\left(\text{O}~;~\vect{u},~\vect{v}\right)$}
+\usepackage{fancyhdr}
+\usepackage[french]{babel}
+\DecimalMathComma
+\usepackage[np]{numprint}
+\usepackage[dvips,colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{%
+pdfauthor = {APMEP},
+pdfsubject = {Baccalauréat S},
+pdftitle = {Baccalauréat S -  2019},
+allbordercolors = white,
+pdfstartview=FitH} 
+\newcommand{\e}{\,\text{e\,}}%%%    le e de l'exponentielle
+\renewcommand{\d}{\,\text d}%%%     le d de l'intégration
+\renewcommand{\i}{\,\text{i}\,}%%%  le i des complexes
+\newcommand{\ds}{\displaystyle}
+
+\begin{document}
+\setlength\parindent{0mm}
+\rhead{\textbf{Vacances de Pâques}}
+\lhead{\small{Seconde 4}}
+\pagestyle{fancy}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%\begin{document}
+
+
+\pagestyle{fancy}
+
+
+\lhead{} 
+\chead{\textbf{\large Modèle évaluation intervalle de confiance}}
+\lhead{}
+\rhead{\textbf{\large TG3/TG4}}
+\cfoot{}
+
+\rfoot{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%\begin{document}
+\begin{large}
+\noindent \textbf{Exercice 1.}
+\vskip 0.2 cm
+\noindent
+Dans une ville de \nombre{23000} habitants, la municipalité souhaite connaître l'opinion de ses concitoyens sur la construction d'un nouveau complexe sportif.\\
+Afin de l'aider dans sa décision, la municipalité souhaite obtenir une estimation de la proportion de personnes favorables à la construction de ce complexe sportif.
+
+\begin{enumerate}
+\item  Elle fait réaliser un sondage auprès de \nombre{1100} personnes.\\
+700 sont favorables à cette construction.
+
+\begin{enumerate}
+\item Déterminer la proportion $p$ de personnes favorables à cette construction parmi les personnes interrogées.
+
+\item Déterminer, au niveau de confiance de 95\,\%  un intervalle de confiance de la proportion de personnes favorables à cette construction.
+
+\item La municipalité trouve que la marge d'erreur (amplitude) de cet intervalle est trop grande.\\
+Il souhaiterait que cette marge soit inférieure ou égale à 0.04.\\
+Combien de personnes faut-il interroger ?
+\end{enumerate}
+
+
+\end{enumerate}
+
+\vskip 1 cm
+\noindent \textbf{Exercice 2.}
+\vskip 0.2 cm
+\noindent
+On désire évaluer l'abondance d'une espèce animale vivant sur une île.\\
+Pour cela, on capture \nombre{1200} individus, on les marque puis on les relâche.\\
+On recapture ultérieurement \nombre{1500} animaux parmi lesquels on dénombre 375 animaux marqués.
+\begin{enumerate}
+\item Calculer la proportion d'animaux marqués lors de la recapture.
+
+\item Estimer l'abondance de l'espèce étudiée.
+
+\item 
+\begin{enumerate}
+\item Déterminer un intervalle de confiance au seuil de confiance 95\:\% de la proportion
+d'animaux marqués.
+
+\item En déduire un encadrement de l'abondance de l'espèce étudiée.
+\end{enumerate}
+\end{enumerate}
+\end{large}
+\newpage
+\pagestyle{fancy}
+
+
+\lhead{} 
+\chead{\textbf{\large Modèle évaluation intervalle de confiance}}
+\lhead{}
+\rhead{\textbf{\large TG3/TG4}}
+\cfoot{}
+
+\rfoot{}
+
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+
+%\begin{document}
+\begin{large}
+\noindent \textbf{Exercice 1.}
+\vskip 0.2 cm
+\noindent
+Dans une ville de \nombre{23000} habitants, la municipalité souhaite connaître l'opinion de ses concitoyens sur la construction d'un nouveau complexe sportif.\\
+Afin de l'aider dans sa décision, la municipalité souhaite obtenir une estimation de la proportion de personnes favorables à la construction de ce complexe sportif.
+
+\begin{enumerate}
+\item  Elle fait réaliser un sondage auprès de \nombre{1100} personnes.\\
+700 sont favorables à cette construction.
+
+\begin{enumerate}
+\item Déterminer la proportion $p$ de personnes favorables à cette construction parmi les personnes interrogées.
+
+\item Déterminer, au niveau de confiance de 95\,\%  un intervalle de confiance de la proportion de personnes favorables à cette construction.
+
+\item La municipalité trouve que la marge d'erreur (amplitude) de cet intervalle est trop grande.\\
+Il souhaiterait que cette marge soit inférieure ou égale à 0.04.\\
+Combien de personnes faut-il interroger ?
+\end{enumerate}
+
+
+\end{enumerate}
+
+\vskip 1 cm
+\noindent \textbf{Exercice 2.}
+\vskip 0.2 cm
+\noindent
+On désire évaluer l'abondance d'une espèce animale vivant sur une île.\\
+Pour cela, on capture \nombre{1200} individus, on les marque puis on les relâche.\\
+On recapture ultérieurement \nombre{1500} animaux parmi lesquels on dénombre 375 animaux marqués.
+\begin{enumerate}
+\item Calculer la proportion d'animaux marqués lors de la recapture.
+
+\item Estimer l'abondance de l'espèce étudiée.
+
+\item 
+\begin{enumerate}
+\item Déterminer un intervalle de confiance au seuil de confiance 95\:\% de la proportion
+d'animaux marqués.
+
+\item En déduire un encadrement de l'abondance de l'espèce étudiée.
+\end{enumerate}
+\end{enumerate}
+\end{large}
+
+\end{document}
+
+
+

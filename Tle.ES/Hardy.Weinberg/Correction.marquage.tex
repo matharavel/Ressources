@@ -1,0 +1,178 @@
+\documentclass[xcolor={dvips,ps2pdf},dvips]{beamer}
+ \usepackage{hyperref}
+ \usepackage[greek,frenchb]{babel}
+%\usepackage[utf8x]{inputenc}
+\usepackage{ucs}
+\usepackage[latin1]{inputenc}
+\usepackage{lmodern}
+\usepackage{tikz,tkz-tab}
+\usefonttheme{serif,professionalfonts}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+\usepackage{pst-text,pst-plot,pst-math}
+\usepackage{mathrsfs}
+\usepackage{color}
+\definecolor{myred}{rgb}{0.93,0.26,0}
+\usepackage{systeme}
+%\usepackage{colortbl}
+\usepackage{multicol}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\D}{\mathbb{D}}\newcommand{\vect}[1]{\overrightarrow{\,\mathstrut#1\,}}
+\newsavebox{\fmbox}
+
+\newenvironment{encadrer}{%
+	\vspace{1em}
+    \begin{lrbox}{\fmbox}\begin{minipage}{0.98\textwidth}}
+    {%\vspace{1em}
+    \end{minipage}\end{lrbox}\fbox{\usebox{\fmbox}}
+	
+	\vspace{1em}
+	}
+\everymath{\displaystyle}
+\usepackage{tabularx}
+\usepackage{pifont}
+\usepackage{ifthen}
+\usepackage{amsmath,multicol}
+\usepackage{fancybox,color}
+\usepackage{xcolor}
+\usepackage[pstricks]{bclogo}
+\usepackage{pstricks,pst-node,pst-text,pst-coil}
+\setcounter{tocdepth}{1} %\setcounter{page}{0}
+%\setcounter{page}{0}
+\setbeamertemplate{section in toc}[sections numbered]
+\newcommand{\pr}{\mathbb{P}}
+%\renewcommand\FancyVerbFormatLine[1]{\colorbox{green}{#1}}
+
+%\usecolortheme[rgb=0.97,0.35,0.04]{structure}
+\usepackage{caption}
+\usecolortheme{dolphin}
+\useoutertheme{shadow}
+\captionsetup{labelformat=empty,font=footnotesize}
+
+
+\usetheme{Warsaw}
+%\usecolortheme{seahorse}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{items}[ball]
+%\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{title}{bg=red!65!black, fg=white}
+
+
+
+\begin{document}
+
+
+\title[] 
+\subtitle{}
+
+\author[] % (optional, use only with lots of authors)
+{}
+% - Give the names in the same order as the appear in the paper.
+% - Use the inst{?} command only if the authors have different
+%   affiliation.
+
+\institute{Lycée Maurice Ravel}% (optional, but mostly needed)
+
+\logo{}
+
+
+
+
+% If you wish to uncover everything in a step-wise fashion, uncomment
+% the following command: 
+
+\beamerdefaultoverlayspecification{<+->}
+
+
+
+
+\everymath{\displaystyle}
+
+
+\begin{frame}
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{items}[ball]
+%\setbeamertemplate{navigation symbols}{}
+\setbeamercolor{title}{bg=red!65!black, fg=white}
+
+\frametitle{Exercice 1}
+\pause 
+on a $\dfrac{M}{N}=\dfrac{m}{n}$ donc $N=\dfrac{82\times 67}{2}=\pause 2747$.
+
+On peut estimer le nombre d'animaux en 2019 à $2747$ :~\pause 
+
+Ainsi, la population de Trichosurus cunninghami a retrouvé un niveau sensiblement équivalent
+à celui d'avant 2009.
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Exercice 2}
+\pause 
+\begin{enumerate}
+\item 
+Ici, les otaries sont marquées en coupant une mèche de fourrure. Cette méthode a plusieurs
+avantages :
+\pause
+\begin{itemize}
+\item sans un temps assez court, elle est indélébile et, dans un temps long, elle disparaît
+(avec la repousse des poils) ce qui ne perturbe pas la vie de l'animal sur le long terme ;
+\pause 
+\item elle permet une recapture visuelle c'est-à-dire par simple observation des animaux (et
+donc sans avoir à la recapturer physiquement)
+\end{itemize}
+\pause 
+\item 
+\begin{itemize}
+\item Pour la capture 1 : \pause  on peut estimer l'abondance à $\dfrac{1291\times 1080}{391}\approx 3566$ individus.
+\pause 
+\item Pour la capture 2 : \pause  on peut estimer l'abondance à $\dfrac{1291\times 1224}{378}\approx 4180$ individus.
+\pause 
+\item 
+Pour la capture 3 : \pause  on peut estimer l'abondance à $\dfrac{1291\times 1233}{357}\approx 4459$ individus.
+\end{itemize}
+\end{enumerate}
+\end{frame}
+\begin{frame}
+\begin{enumerate}
+\item[3.] L'abondance moyenne (estimée) est environ à : \pause 
+\begin{center}
+$\dfrac{3566 + 4180 + 3937 + 4459}{4}=4036$.
+\end{center}
+\pause
+\item[4.]  On voit que les estimations diffèrent selon les captures en raison de la fluctuation
+d'échantillonnage (le résultat obtenu varie en fonction de l'échantillon). Réaliser plusieurs
+recaptures permet de faire une moyenne sur plusieurs estimations ce qui permet de lisser
+les écarts dus à la fluctuation d'échantillonnage.
+\end{enumerate}
+
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exercice 4}
+\pause 
+\begin{enumerate}
+\item Il y a 4 buissons de chaque type dans chacune des deux zones donc \pause $4\times 2\times 2= 16$  buissons.\\
+\pause Sur chaque buisson, on a relâché 24 animaux soit \pause $16\times 24=384$ \pause  animaux au total.
+\pause 
+\item Ici, on marque tous les animaux qu'on étudie et on recapture tous les animaux sauf ceux
+qui sont morts. \\
+\pause Le « marquage » alors est le fait de ne peut pas être recapturé.\\
+\pause 
+\item Chaque lot comprend autant d'individus mâles que femelles pour éviter les biais liés
+au sexe. \\
+\pause Le marquage individuel à l'aide d'un marqueur permanent à pointe fine sur
+l'abdomen permet d'avoir une marque indélébile mais qui n'affecte pas le comportement
+de l'animal ni son espérance de vie. \\
+\pause 
+Le temps entre le marquage et la réintroduction des animaux dans le milieu est cours (5 jours) et les recaptures sont faites à des temps suffisamment courts (3, 10, 17 et 24 jours) pour limiter les modifications de la population
+(naissance, morts naturelles...).
+\end{enumerate}
+\end{frame}
+  \end{document}

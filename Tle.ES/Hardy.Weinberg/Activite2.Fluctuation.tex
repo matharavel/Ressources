@@ -1,0 +1,455 @@
+\documentclass[a4 paper, 11 pt]{book}
+\usepackage[left=1cm,right=1cm,top=2. cm,bottom=2 cm]{geometry}
+%\usepackage[utf8]{inputenc}
+\usepackage[latin1]{inputenc}
+\usepackage[explicit]{titlesec}
+\usepackage{titletoc}
+\usepackage{asymptote}
+\usepackage{tikz}
+\usepackage{shadow}
+\usepackage{slashbox}
+\usepackage{halloweenmath}
+%\usepackage[tikz]{bclogo}
+\usetikzlibrary{arrows,%
+                plotmarks}
+\usepackage{tkz-euclide}
+\usepackage{tkz-tab}
+\newcommand{\delair}[1]{\ensuremath\displaystyle\psframebox[framesep=0.25em,linestyle=none]{ \displaystyle#1}}
+\usepackage{tkz-base,tkz-fct}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+%\usepackage{pgf}
+\usepackage{stmaryrd}
+\usetikzlibrary{arrows,%
+                plotmarks}
+\usepackage{tkz-euclide}
+\usepackage{tkz-tab}
+\usepackage{tkz-base,tkz-fct}
+\usetikzlibrary{calc}
+\usetikzlibrary{shapes}
+\usepackage{pgf}
+\usepackage{cclicenses}
+\usepackage{colortbl}
+\newcommand{\E}{\ensuremath{\text{e}}}
+\usepackage{fancybox}					% boite
+\usepackage{multicol}					% plusieurs colonnes
+\usepackage{multirow}					% multicol dans tableaux
+\usepackage{tabularx}					% trucs ds tableaux
+\usepackage{colortbl}					% couleurs dans tableaux
+\usepackage{slashbox}	
+\newcommand{\Lim}[2][x]{\displaystyle{\lim_{#1 \to #2}}}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usetikzlibrary{matrix,arrows,decorations.pathmorphing}
+\usepackage{customtheorem}
+\usepackage{mathtools}
+\usepackage{tcolorbox}
+\tcbuselibrary{theorems, skins, breakable}
+\tcbset{
+  leftlined/.style 2 args={
+    blanker, breakable,
+    borderline west={#1}{0pt}{#2},left={#1*14/10+7pt},top=1ex, bottom=1ex
+  }
+}
+
+
+
+%\newcommand{\sauteligne}{\leavevmode\vspace{-\baselineskip}}
+
+
+
+\theoremstyle{standard}% on vide les d?finitions pr?c?dents
+\theorembodyfont{\upshape}% le texte du th?or?me est en droit
+\theoremheadcolor{myorange}% couleur bleu pour les exemples/remarques
+\newtheorem*{proof}{\textit{Démonstration}}
+
+\newcommand{\defi}[1]{{\color{myorange}\textbf{\emph{#1}}}}
+
+
+
+
+\tcolorboxenvironment{definission}{leftlined={5pt}{gray}}
+\theoremstyle{definitionexo7}
+\theorembodyfont{\upshape}
+\newtheorem{definission}{Définition}
+
+
+\tcolorboxenvironment{theo}{leftlined={5pt}{gray}}
+\theoremstyle{definitionexo7}
+\theorembodyfont{\upshape}
+\newtheorem*{theo}{ThÃ©orÃ¨me}
+
+
+
+\tcolorboxenvironment{coro}{leftlined={5pt}{gray}}
+\theoremstyle{definitionexo7}
+\theorembodyfont{\upshape}
+\newtheorem*{coro}{Corollaire}
+
+
+
+\usepackage{epigraph}
+\usepackage{amssymb}
+\usepackage{amsmath,multicol,amssymb}
+\usetikzlibrary{shapes.geometric}
+\usepackage[framemethod=tikz]{mdframed}
+\usetikzlibrary{calc}
+\usepackage{pifont}
+\def\vect{\overrightarrow}
+\usepackage{mathrsfs}
+\usepackage{xpatch}
+\usepackage{lmodern}
+\usepackage{lipsum}
+\usepackage[francais]{babel}
+\usepackage[tikz]{bclogo}
+\newlength\ChapWd
+\settowidth\ChapWd{\huge\chaptertitlename}
+\newcommand*{\N}{\mathbb{N}}
+\newcommand*{\Z}{\mathbb{Z}}
+\newcommand*{\C}{\mathbb{C}}
+\newcommand*{\pr}{\mathbb{P}}
+\newcommand*{\Q}{\mathbb{Q}}
+\newcommand*{\J}{\text{i}}
+\newcommand{\moy}[1]{\overline{#1}}
+\newcommand*{\R}{\mathbb{R}}
+\usepackage{framed}	
+\newcommand*{\e}{\text{e}}
+%\definecolor{myblue}{RGB}{0,0,122}
+\definecolor{myblue}{RGB}{139,0,0}
+\definecolor{vert2}{RGB}{60,179,113}
+\usepackage{pstricks,pst-plot,pst-text,pst-tree,pst-eps,pst-all,pst-tree,pst-fill,pst-node,pstricks-add,pst-math,pst-blur}
+%\definecolor{vert3}{RGB}{139,0,0}
+%\definecolor{myblue}{RGB}{139,0,0}
+\titleformat{\chapter}[display]
+  {\normalfont\filcenter\sffamily}
+  {\tikz[remember picture,overlay]
+    {
+    \node[fill=myblue,font=\fontsize{60}{72}\selectfont\color{white},anchor=north west,minimum size=\ChapWd] 
+      at ([xshift=30pt,yshift=-30pt]current page.north west) 
+      (numb) {\thechapter};
+    \node[rotate=90,anchor=south,inner sep=0pt,font=\huge,color=myblue] at (numb.west) {\chaptertitlename};
+    }
+  }{0pt}{\fontsize{33}{40}\selectfont\color{myblue}#1}[\vskip10pt\Large***]
+\titlespacing*{\chapter}
+  {0pt}{30pt}{10pt}
+
+
+\makeatletter
+\xpatchcmd{\ttl@printlist}{\endgroup}{{\noindent\color{myblue}\rule{\textwidth}{1.5pt}}\vskip30pt\endgroup}{}{}
+\makeatother
+
+\newcommand\DoPToC{%
+\startcontents[chapters]
+\printcontents[chapters]{}{1}{\noindent{\color{myblue}\rule{\textwidth}{1.5pt}}\par\medskip}%
+}
+
+\setlength\epigraphrule{0pt}
+\renewcommand\textflush{flushright}
+\renewcommand\epigraphsize{\normalsize\itshape}
+
+
+\theoremstyle{standard}% on vide les dÃ©finitions prÃ©cÃ©dents
+\theorembodyfont{\upshape}% le texte du thÃ©orÃ¨me est en droit
+\theoremheadcolor{blue}% couleur bleu pour les exemples/remarques
+%\newtheorem*{exemple}{Exemple}
+\newtheorem*{remarque}{Remarque}
+%\newtheorem*{exemples}{Exemples}
+\newtheorem*{remarques}{Remarques}
+
+
+
+\newrgbcolor{Rfond}{.995 0.945 .985}  
+\newrgbcolor{Rougef}{.8 0.1 .2}
+
+\theoremstyle{standard}% on vide les dÃ©finitions prÃ©cÃ©dents
+\theorembodyfont{\upshape}% le texte du thÃ©orÃ¨me est en droit
+\theoremheadcolor{black}% couleur bleu pour les exemples/remarques
+\newtheorem*{exemple}{Exemple}
+%\newtheorem*{remarque}{Remarque}
+\newtheorem*{exemples}{Exemples}
+
+
+
+
+\theoremstyle{standard}% on vide les dÃ©finitions prÃ©cÃ©dents
+\theorembodyfont{\upshape}% le texte du thÃ©orÃ¨me est en droit
+\theoremheadcolor{myorange}% couleur bleu pour les exemples/remarques
+\newtheorem*{demonstration}{Démonstration}
+
+
+
+
+\theoremstyle{standard}% on vide les dÃ©finitions prÃ©cÃ©dents
+\theorembodyfont{\upshape}% le texte du thÃ©orÃ¨me est en droit
+\theoremheadcolor{myorange}% couleur bleu pour les exemples/remarques
+\newtheorem{propriete}{Propriété}
+
+
+%\theoremstyle{standard}% on vide les dÃ©finitions prÃ©cÃ©dents
+%\theorembodyfont{\upshape}% le texte du thÃ©orÃ¨me est en droit
+%\theoremheadcolor{red}% couleur bleu pour les exemples/remarques
+%\newtheorem{exo}{Exercice}
+
+\definecolor{myred}{rgb}{0.93,0.26,0}
+\definecolor{myorange}{rgb}{0.97,0.58,0}
+\definecolor{myyellow}{rgb}{1,0.86,0}
+
+
+
+
+
+
+
+
+%\newtikzdef{definition}{DÃ©finition}
+%\renewcommand{\thedefinition}{\arabic{definition}.}
+
+
+
+\newcommand*{\ds}{\displaystyle}
+
+
+
+\definecolor{bleupastel}{RGB}{218,251,252}
+
+\theoremheadcolor{black}
+\newtheorem*{miniexercices}{Mini-exercices}
+%\newtheorem*{miniexercice}{Mini-exercice}
+\tcolorboxenvironment{miniexercices}{leftlined={2pt}{myyellow,decorate,decoration={name=zigzag}}}
+
+
+
+
+
+\theoremheadcolor{black}
+\newtheorem*{miniexercice}{Mini-exercice}
+\tcolorboxenvironment{miniexercice}{leftlined={5pt}{myyellow}}
+
+
+
+
+\newcommand{\points}[1][5cm]{\makebox[#1][l]{\dotfill}\xspace}
+
+
+
+\def\tikztitleboxi#1#2{
+      \tikzstyle{titlebox} = [fill=red!5, rectangle, inner sep=10pt, inner ysep=10pt]
+      \tikzstyle{title}=[text=red,above,rotate=90]
+      \bigskip\noindent\begin{tikzpicture}
+      \node[titlebox] (box){#1};
+      \useasboundingbox (box);
+      \draw[color=red,very thick,line width=2.5 pt] (box.north west)--(box.south west);
+      \node[title] at (box.west) {#2};
+      \end{tikzpicture}
+}%
+
+
+\def\newtikztheorem#1#2{
+\expandafter\newsavebox\csname temp#1box \endcsname
+\newcounter{#1}
+\setcounter{#1}{0}
+\newenvironment{#1}
+     {\begin{lrbox}{\csname temp#1box \endcsname}\begin{minipage}{0.95\textwidth}}
+     {\end{minipage}\end{lrbox}%
+      \tikztitleboxi{\usebox{\csname temp#1box \endcsname}}%
+                   {\refstepcounter{#1}\textbf{#2~\expandafter\csname the#1\endcsname}}
+     }
+}
+
+
+
+
+%\newtikztheorem{theoreme}{ThÃ©orÃ¨me}
+
+\newtikztheorem{exo}{Ex.}
+\newtikztheorem{theoreme}{ThÃ©orÃ¨me}
+
+\newcommand{\myunit}{1 cm}
+\tikzset{
+    node style sp/.style={draw,circle,minimum size=\myunit},
+    node style ge/.style={circle,minimum size=\myunit},
+    arrow style mul/.style={draw,sloped,midway,fill=white},
+    arrow style plus/.style={midway,sloped,fill=white},
+}
+
+
+
+\def\att{
+\begin{tikzpicture}[scale=0.6]
+\draw[fill=red,rounded corners=1.5pt] (0,0) -- (1,0) -- (0.5,1) -- cycle ;
+\draw[fill=white,rounded corners=2pt] (0.13,0.08) -- (0.87,0.08) -- (0.5,0.8) -- cycle ;
+\draw[fill=black,rounded corners=1pt] (0.5,0.3) -- (0.55,0.6) -- (0.45,0.6) -- cycle ;
+\fill (0.5,0.2) circle(0.04) ;
+\draw (1.2,0) ;
+\end{tikzpicture}}
+
+
+
+
+\theoremstyle{standard}
+\theorembodyfont{\upshape}
+\theoremheadcolor{red}
+\newtheorem{thmm}{Définition}
+%\newcounter{#1}
+%\setcounter{#1}{0}
+
+\newenvironment{definition}
+{\begin{mdframed}[backgroundcolor = red!5,
+hidealllines=true,
+leftline=true,
+innerleftmargin=10pt,
+innerrightmargin=10pt,
+innertopmargin=3 pt\baselineskip,
+innerbottommargin=0.5\baselineskip,
+linewidth=3pt,linecolor=red] 
+\begin{thmm}}
+{\end{thmm}\end{mdframed}}
+
+
+
+\newenvironment{remark}{\par\vspace{10pt} % Vertical white space above the remark and smaller font size
+\begin{list}{}{
+\leftmargin=0pt % Indentation on the left
+\rightmargin=5pt}\item\ignorespaces % Indentation on the right
+\makebox[-.5pt]{\begin{tikzpicture}[overlay]
+\node[draw=vert2!60,line width=1pt,circle,fill=vert2!5,font= \bfseries,inner sep=2pt,outer sep=0pt] at (-10pt,5pt){\textcolor{vert2}{R}};\end{tikzpicture}} % Orange R in a circle
+\advance\baselineskip 5pt}{\end{list}\vskip5pt} 
+
+
+\def\newtikzprop#1#2{
+\expandafter\newsavebox\csname temp#1box \endcsname
+\newcounter{#1}
+\setcounter{#1}{0}
+\newenvironment{#1}
+     {\begin{lrbox}{\csname temp#1box \endcsname}\begin{minipage}{0.95\textwidth}}
+     {\end{minipage}\end{lrbox}%
+      \tikztitleboxi{\usebox{\csname temp#1box \endcsname}}%
+                   {\refstepcounter{#1}\textbf{#2~\expandafter\csname \endcsname}}
+     }
+}
+
+\newtikzprop{exu*}{MÃ©thode}
+
+\usepackage{fancyhdr}
+\usepackage{diagbox}
+
+\newcommand{\dd}{\mathrm{d}}
+\fancyhf{}
+
+
+\chead{\textbf{Activité 2 : estimer par intervalle de confiance}}
+\lhead{\includegraphics[scale=0.025]{bysa}}
+\rhead{\textbf{\thepage}}
+\cfoot{\scriptsize\textsl{\color{purple}Yann \textsc{MOBIAN} - Classes de TG3/TG4 - \textcolor{purple}{Licence Creative Commons \bysa - 2021/2022}}}
+
+
+
+\pagestyle{fancy}
+
+%\setcounter{chapter}{9}
+
+
+
+
+\setlength{\columnsep}{1cm}
+
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1cm}}
+\begin{document}
+
+
+
+\begin{multicols}{2}
+%\setlength{\columnseprule}{0.5pt}
+%\setlength{\columnsep}{30pt}
+\noindent \textbf{\textbf{Document 1.~La fluctuation d'échantillonnage.}}
+\vskip 0.2 cm
+\noindent Dans une population, lorsque l'on étudie les fréquence d'un caractère sur plusieurs échantillons de même taille d'une population, on peut observer que les résultats ne sont pas identiques selon les échantillons.~Ce phénomène est appelé \defi{fluctuation d'échantillonnage}.\\
+Par exemple, les Crabes violonistes ont une grosse pince indifféremment à droite ou à gauche.\\
+Si on prélevait au hasard 20 \defi{échantillons} de 10 crabes au sein de la population des Crabes violonistes, on obtiendrait des répartitions variables d'un \defi{tirage} à l'autre.
+\begin{center}
+\includegraphics[scale=0.75]{crabe.png}
+\end{center}
+\vskip 0.5 cm
+\noindent \textbf{\textbf{Document 2.~Visualiser la fluctuation des fréquences liées à l'échantillonnage.}}
+\vskip 0.2 cm
+Dans une population de taille $N$ (supposé très grand) de Crabes violonistes, on s'intéresse donc au \defi{caractère} \og~côté de la grosse pince \fg~dont la \defi{modalité} est \og gauche \fg~pour 50 \% des individus et \og droite \fg~pour les autres 50 \%.\\
+Pour simuler l'observation du caractère sur un échantillon de seulement 10 crabes, on peut utiliser un tableur.
+\vskip 0.2 cm
+
+\noindent \textbf{Protocole~:}
+\begin{enumerate}
+\item La commande \texttt{ALEA()} génère un nombre aléatoire compris entre $0$ (inclus) et $1$ (exclu).~Pour modéliser l'équiprobabilité de la situation, on peut associer à un nombre inférieur à $0,5$ le caractère \og GAUCHE\fg~et sinon le caractère sera \og DROITE \fg.
+Soit $\texttt{SI(ALEA()<0,5};\texttt{"GAUCHE ";"DROITE"})$.
+\item Pour le calcul de la fréquence \footnote{Si l'événement $A$ se produit $n_A$ fois lors d'une expérience répétée $N$ fois, la fréquence de l'événement $A$ est $\dfrac{n_A}{N}$.~La fréquence est un nombre réel compris entre $0$ et $1$ mais on en donne souvent une valeur approchée sous forme de pourcentage.} on utilise la fonction $\texttt{NB.SI(B2:B11;"GAUCHE")}$ qui comptabilise, dans les cellules $\texttt{B2}$ à $\texttt{B11}$, combien contiennent un \og GAUCHE \fg, puis on divise par 10 pour obtenir la fréquence.
+\begin{center}
+\includegraphics[scale=0.8]{tableur.png}
+\end{center}
+
+\item En réalisant 20 fois ce tirage, on peut alors construire les représentations graphiques de la fréquence obtenue pour chaque échantillon et de la fréquence du cumul des échantillons.
+\begin{center}
+\includegraphics[scale=0.75]{courbe1.png}
+\end{center}
+\begin{center}
+\includegraphics[scale=0.75]{courbe2.png}
+\end{center}
+\end{enumerate}
+\vskip 0.5 cm
+\noindent \textbf{\textbf{Document 3.~Attribuer un niveau de confiance à une estimation de fréquence.}}
+\vskip 0.2 cm
+La \defi{drosophile} est une petite mouche très fréquente dans les vignobles.~Elle montre des variations possibles de son phénotype : ailes développées ou non, yeux rouges ou roses, corps brun ou noir \ldots\\
+\begin{center}
+\includegraphics[scale=0.75]{drosophile}
+\end{center}
+\newpage
+\chead{}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+\renewcommand{\headrulewidth}{0.4pt}
+%\renewcommand{\footrule}{{\color{green}\rule{\textwidth}{1pt}}}
+
+Pour échantillonner les drosophiles, les scientifiques déposent de la banane écrasée dans une bouteille, qu'ils laissent ouverte une nuit : les adultes y pondent leurs  \oe{}ufs.~Au matin, la bouteille est fermée et laissée à incuber quelques jours.~Les drosophiles ainsi récoltées sont analysées.
+\begin{center}
+\includegraphics[scale=0.75]{echantillon}
+\end{center}
+\bigskip
+\textbf{Quelle fréquence est la plus proche de la proportion de Drosophiles noires en France?}
+\vskip 0.3 cm
+Aucun des deux échantillonnages n'est plus proche de la réalité : prélever au hasard sur tout le territoire est aussi approximatif que relever plus d'individus dans un seul endroit.~Lorsque l'on fait ce type de sondage, on peut seulement donner un intervalle, appelé \defi{intervalle de confiance}, dans lequel la proportion cherchée a de grandes chances de se situer.~Plus l'échantillon et de grande taille et plus l'amplitude de cet intervalle sera petite; l'estimation sera donc plus précise.
+\vskip 0.5 cm
+\noindent \textbf{\textbf{Document 4.~De la fréquence d'un caractère à la fréquence d'un génotype}}
+\vskip 0.2 cm
+\noindent Pour la plupart des êtres vivants, les chromosomes sont présents par paire ; l'un est d'origine maternelle et l'autre d'origine paternelle.~Les gènes \footnote{Gène : séquence ADN assurant la transmission et l'expression d'une caractéristique précise d'un organisme vivant.} sont donc présents en deux exemplaires.~Or un gène peut exister en plusieurs versions appelées allèles\footnote{Version possible d'un gène donné.}.\\
+Dans le cas de la drosophile, les individus à corps noir ont deux allèles ébène (noté $e$).~Leur génotype est $(e\sslash e)$ : ils sont dits \defi{homozygotes} pour $e$.\\
+Les individus à corps brun possèdent au moins un allèle brun (noté $B$) mais peu importe le second allèle : leur génotype est soit $(B\sslash B)$, donc homozygote pour $B$, soit $(B\sslash e)$, donc \defi{hétérozygote} car les deux allèles sont différents.~La fréquence du génotype\footnote{Fréquence génotypique : proportion d'un certain génotype dans une population.} $(e\sslash e)$ est notée $f(e\sslash e)$ et vaut : 
+\begin{center}
+\shabox{
+$f(e\sslash e)=\dfrac{\text{nombre de drosophiles noires}}{\text{nombre total de drosophiles}}$}.
+\end{center}
+\end{multicols}
+\vskip 0.5 cm
+\noindent \textbf{Consignes.}
+\begin{enumerate}
+\item \textbf{Observer} et \textbf{discuter} les fluctuations de fréquence sur les graphiques du document 2.
+\vskip 0.2 cm
+\item \textbf{Réaliser} une simulation en considérant cette fois 20 échantillons de 100 crabes (document 1 et protocole du document 2).~\textbf{Construire} les graphiques associés les comparer à ceux du document 2.
+\vskip 0.2 cm
+\item \textbf{Calculer} et \textbf{comparer} les intervalles de confiance à 95\% aux deux échantillons du document 3.
+\vskip 0.2 cm
+\item Dans l'échantillonnage 1 du document 3, on dénombre 225 homozygotes $(B\sslash B)$ dans la population récoltée.\\
+\textbf{Calculer} la fréquence du génotype $(B\sslash e)$ de cet échantillon (documents 3 et 4).
+\end{enumerate}
+\hrulefill
+
+
+\vskip 1 cm 
+\noindent \textbf{Le coin des Maths.}\\
+
+\noindent L'\defi{intervalle de confiance} à 95 \% est l'intervalle :
+\begin{center}
+\shabox{$\left[f-\dfrac{1}{\sqrt{n}}\,;\,f+\dfrac{1}{\sqrt{n}}\right]$}
+\end{center}
+\vskip 0.2 cm
+où $f$ est la fréquence observée dans un échantillon de taille $n$.
+
+\end{document}
